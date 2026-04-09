@@ -1,8 +1,20 @@
 import slice from "../img/pizzaslice.png";
+import leonardo from "../img/leonardo.png";
+import michelangelo from "../img/michaelangelo.png";
+import donatello from "../img/donatello.png";
+import raphael from "../img/raphael.png";
+import shredder from "../img/shredder.png";
+
 
 export function showMenu() {
     let html = `
-        <ul id="menu">
+    <div id="icons_gallery">
+        <img class="icon margin-vertical" src="${leonardo}" title="Leonardo" alt="Cartoon icons created by      surang - Flaticon">
+        <img class="icon margin-vertical" src="${michelangelo}" title="Michelangelo" alt="Cartoon icons created by      surang - Flaticon">
+        <img class="icon margin-vertical" src="${donatello}" title="Donatello" alt="Cartoon icons created by      surang - Flaticon">
+        <img class="icon margin-vertical" src="${raphael}" title="Raphael" alt="Cartoon icons created by      surang - Flaticon">
+    </div>
+    <ul id="menu">
     <li id="1">
         <div>
             <img src="${slice}" class="pizza-img-small" alt="Pizza">
@@ -20,7 +32,7 @@ export function showMenu() {
             <img src="${slice}" class="pizza-img-small" alt="Pizza">
         </div>
         <div>
-            <p class="dish_title">Pizza Ninja</p>
+            <p class="dish-title">Pizza Ninja</p>
             <p class="dish-description">
                 Pizza with Salami, Paprika, mushrooms and extra anchovis.
             </p>
@@ -58,11 +70,13 @@ export function showMenu() {
         <div>
             <p class="dish-title">Party Pizza</p>
             <p class="dish-description">
-                Order your favourite Pizza in XXL size. One of it will be enough for your Ninja Clan at home. A few of these may be enough for the whole foot gang.
+                Order your favourite Pizza in XXL size. One of it will be enough for your Ninja Clan at home. A few of these may be enough for the whole Foot Clan.
             </p>
         </div>
     </li>
-</ul>`;
+</ul>
+<img class="icon margin-vertical" src="${shredder}" title="Shredder" alt="Cartoon icons created by      surang - Flaticon">
+`;
 
 return html;
 }

@@ -3,14 +3,21 @@
     paddinig: 0;
     box-sizing: border-box;
 
+/* ==============================   VARIABLES   ============================== */
+
     --header-height: 170px;
     --header-padding: 20px;
+    --turtles-green: rgba(143, 209, 41,1);
+    --banner-red: rgba(237, 28, 36, 1);
     --spacer-color: rgb(117, 212, 45);
     --spacer-height-dynamic: clamp(10px, 1.25vw, 15px);
     --larger-font: clamp(18px, 1.95vw, 24px);
     --smaller-font: clamp(10px, 1.25vw, 14px);
     --small-pizza-img-size: clamp(30px, 20vw, 50px);
 }
+
+
+/* ==============================   GENERAL   ============================== */
 
 body {
     height: 100%;
@@ -21,6 +28,22 @@ body {
     justify-content: flex-start;
     align-items: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--banner-red);
+    cursor: pointer;
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.margin-vertical {
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 header {
@@ -65,7 +88,7 @@ nav button {
     padding: 4px 10px;
     font-weight: 700;
     color: white;
-    background-color: red;
+    background-color: var(--banner-red);
     text-transform: uppercase;
     font-family: monospace;
     border: 4px solid black;
@@ -75,27 +98,27 @@ nav button {
 }
 
 nav button:hover {
-    transform: translateY(6px);
     opacity: 1;
     box-shadow: 0 0 4px darkgrey;
 }
 
-nav button:active {
-    opacity: 1;
+.hover-translate:hover {
+    transform: translateY(6px);
 }
 
 .active {
     opacity: 1;
     border: 4px solid black;
     box-shadow: 0 0 4px lightgrey;
-    /* transform: translateY(6px); */
 }
 
 .spacer {
     width: 100%;
-    background-color: var(--spacer-color);
+    background-color: var(--turtles-green);
     height: var(--spacer-height-dynamic);
 }
+
+
 
 main {
     display: flex;
@@ -120,6 +143,10 @@ main {
     margin-bottom: 1rem;
 }
 
+#content h2 {
+    margin-bottom: 1rem;
+}
+
 #content p {
     width: 100%;
 }
@@ -128,12 +155,17 @@ main {
     font-size: var(--smaller-font);
 }
 
+/* ==============================   HOME SECTION   ============================== */
+
 #content .party-img {
     margin: 2rem;
     object-fit: contain;
     /* height: auto; */
     width: clamp(30%, 500px, 90%);
 }
+
+
+/* ==============================   MENU SECTION   ============================== */
 
 #content ul {
     display: flex;
@@ -144,16 +176,53 @@ main {
 #content li {
     list-style-type: none;
     display: flex;
+    justify-content: space-between;
     gap: clamp(var(--smaller-font), 20px, var(--larger-font)); 
 
 }
 
 .pizza-img-small {
     width: var(--small-pizza-img-size);
+    transition: all 150ms ease-in-out;
+}
+
+.emphasize-font {
+    font-style: italic;
+    font-weight: 800;
+}
+
+.pizza-hover {
+    animation-name: pizza;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pizza {
+    From {
+        rotate: 0deg;
+        scale: 1;
+    }
+
+    33% {
+        rotate: -15deg;
+        scale: 1.15;
+    }
+
+    66% {
+        rotate: 30deg;
+        scale: 1.2;
+    }
+
+    To {
+        rotate: 0deg;
+        scale: 1;
+    }
+    
 }
 
 #content li:nth-child(odd) img {
-    transform: rotate(-90deg);
+    transform: rotate(-65deg);
 }
 
 #content li:nth-child(even) {
@@ -161,11 +230,11 @@ main {
 }
 
 #content li:nth-child(even) img {
-    transform: rotate(90deg);
+    transform: rotate(70deg);
 }
 
 .dish-title {
-
+    color: rgba(196, 30, 30, 1  )
 }
 
 .dish-description {
@@ -173,12 +242,35 @@ main {
     font-weight: 400;
 }
 
+/* ==============================   ABOUT SECTION   ============================== */
+
+#opening-hours {
+    background-color: var(--turtles-green);
+    line-height: 1.5rem;
+    padding: 8px 18px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+#map {
+    width: 100%;
+    border: 6px solid var(--turtles-green);
+}
+
+#map iframe {
+    width: 100%;
+}
+
+
 footer {
     line-height: 1.5;
     font-size: large;
     width: 70%;
     padding: 18px;
 }
+
+
+/* ==============================   MOBILE VERSION   ============================== */
 
 @media (max-width: 800px) {
 
@@ -226,6 +318,15 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+    }
+
+    #content li {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: clamp(var(--smaller-font), 20px, var(--larger-font)); 
+
     }
 
     footer {
